@@ -22,4 +22,6 @@ False  # boolean
 
 first_name = "Cosmos"  # snake case
 
-print(True)  # print function to display output
+world = "Hello World!"  # string variable
+
+print(world)  # print function to display output
