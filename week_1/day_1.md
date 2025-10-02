@@ -1,5 +1,6 @@
 **Foxtrot Cohort - Univelcity: Backend with Python Django**
 **Week 1, Day 1: Introduction & Foundations**
+**Instructor: Mr Miracle King**
 **Learner: Cosmas Onyekwelu**
 
 **1. Basic Programming Terms**
