@@ -1,1 +1,7 @@
 "EXPECTATION FOR BACKEND WITH PYTHON & DJANGO" 
+
+1. Complete the Python learning roadmap with consistency.
+2. Build hands-on projects to apply concepts (games, tools, web apps).
+3. Collaborate and share progress with peers.
+4. Strengthen problem-solving and logical thinking skills.
+5. Gain confidence to build real-world applications by the end.
