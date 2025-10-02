@@ -39,7 +39,7 @@ addition = 12 + 12  # Addition
 
 concatenation = "Hello" + " " + "Cosmas"  # String Concatenation
 
-repetition = "Hurray " * 3  # String Repetition
+repetition = "Hurray" * 3  # String Repetition
 
 first_number = 4
 second_number = 6
@@ -66,3 +66,44 @@ print("Addition:", add, "Type:", type(add))
 print("Subtraction:", subtract, "Type:", type(subtract))
 print("Multiplication:", multiply, "Type:", type(multiply))
 print("Division:", divide, "Type:", type(divide))
+
+
+# Casting - Changing one data type to another data type
+
+'''
+int() - convert to integer(string, float)-provided the fact that the characters are numbers
+str() - convert to string(integer, boolean, float)
+float() - convert to float (integer, string)-provided the fact that the characters are numbers
+bool() - boolean("string")
+
+'''
+
+# converting addition to a string
+convert_to_string = str(add)
+print("Converting addition to string:",
+      convert_to_string, type(convert_to_string))
+
+# converting subtraction to a float
+convert_to_float = float(subtract)
+print("Converting subtraction to float:",
+      convert_to_float, type(convert_to_float))
+
+# converting multiplication to a boolean
+convert_to_boolean = bool(multiply)
+print("Converting multiplication to boolean:",
+      convert_to_boolean, type(convert_to_boolean))
+
+# converting divide to an integer
+convert_to_int = int(divide)
+print("Converting divide to integer:",
+      convert_to_int, type(convert_to_int))
+
+# Re-assigning a variable
+nationality = "United States Of America"
+nationality = "Nigerian"
+nationality = "France"
+print(nationality)
+
+introduction = "Hello, My name is " + " " + \
+    first_name + " I am from " + " " + nationality
+print(introduction)
