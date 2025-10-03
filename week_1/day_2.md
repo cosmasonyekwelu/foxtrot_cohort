@@ -2,7 +2,7 @@
 Foxtrot Cohort:  Day 2
 Date: 02 October 2025
 
-## Python Basics — Comments, Variables, Data Types, and Operators
+## Python Basics — Comments, Variables, Data Types, and Operators.
 
 ### 1. Comments in Python
 - **Single-line comment** uses `#` symbol.
