@@ -20,7 +20,7 @@ bottle = "water"
 True  # boolean
 False  # boolean
 
-first_name = "Cosmos"  # snake case
+first_name = "Cosmas"  # snake case
 
 world = "Hello World!"  # string variable
 

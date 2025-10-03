@@ -1,18 +1,16 @@
----
-
 ````
-Foxtrot Cohort:  Day 2  
+Foxtrot Cohort:  Day 2
 Date: 02 October 2025
 
 ## Python Basics — Comments, Variables, Data Types, and Operators
 
 ### 1. Comments in Python
-- **Single-line comment** uses `#` symbol.  
+- **Single-line comment** uses `#` symbol.
   ```python
   # This is a single line comment
 ````
 
-* **Multi-line comment / documentation string** uses triple quotes (`'''` or `"""`).
+- **Multi-line comment / documentation string** uses triple quotes (`'''` or `"""`).
 
   ```python
   '''
@@ -24,8 +22,8 @@ Date: 02 October 2025
 
 ### 2. Variables and Data Types
 
-* Variables are names used to store values.
-* Python uses **snake_case** naming convention.
+- Variables are names used to store values.
+- Python uses **snake_case** naming convention.
 
 Examples:
 
@@ -37,10 +35,10 @@ world = "Hello World!"    # string variable
 
 **Basic Data Types in Python:**
 
-* String: `"qwerty1234567890@#$%^&*()_+"`
-* Integer: `1234567890`
-* Float: `123.4567890`
-* Boolean: `True`, `False`
+- String: `"qwerty1234567890@#$%^&*()_+"`
+- Integer: `1234567890`
+- Float: `123.4567890`
+- Boolean: `True`, `False`
 
 ```python
 print(world)   # Displays: Hello World!
@@ -92,10 +90,10 @@ repetition = "Hurray" * 3                   # "HurrayHurrayHurray"
 
 Type casting means converting one data type into another.
 
-* `int()` → convert to integer
-* `str()` → convert to string
-* `float()` → convert to float
-* `bool()` → convert to boolean
+- `int()` → convert to integer
+- `str()` → convert to string
+- `float()` → convert to float
+- `bool()` → convert to boolean
 
 Examples:
 

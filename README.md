@@ -1,4 +1,4 @@
-# UNIVELCITY Foxtrot Cohort — Backend with Python & Django.
+# UNIVELCITY Foxtrot Cohort: Backend with Python & Django.
 
 Welcome to my **Foxtrot Cohort learning repository**.  
 This repo contains my daily progress, notes, and practice files from the [Backend with Python & Django course](https://univelcity.com/portfolio/backend-with-python-django/) at **Univelcity**.
