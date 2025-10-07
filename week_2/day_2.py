@@ -56,9 +56,39 @@ is_one_true = age >= 20 or nyse == "in_transit"
 print("OR: ", is_one_true)
 
 # NOT Operator : gives the opposite value
-is_not_true = not(age >= 20 and nyse == "done")
+is_not_true = not (age >= 20 and nyse == "done")
 print("NOT: ", is_not_true)
 
 value = False
 negate_value = not value
 print("Not: ", negate_value)
+
+# Strings
+# A string is any character or characters  within a single quote or double quotes.
+# single_quote_string = 'Hello, World!' : a single line
+# double_quote_string = "Hello, World!" : a single line
+# triple_quote_string : a multi-line
+# triple_double_quote_string : a multi-line
+
+single_quote = 'I am in a single quote'
+double_quote = "I am in a double quote"
+triple_quote = '''I am in a triple quote
+I can be multi-line'''
+triple_double_quote = """I am in a triple double quote
+I can also be multi-line"""
+
+''''
+\n : New Line
+\t : Tab
+\\ : Backslash
+\' : Single Quote
+\" : Double Quote
+'''
+
+sentence = 'it was a rainy day today and a lot of people got stuck from coming to work \n There was also a heavy traffic'
+print(sentence)
+
+
+# Data Structures in Python
+# Data structures are used to store multiple values in a single variable.
+# There are four built-in data structures in Python: List, Tuple, Set, Dictionary.
