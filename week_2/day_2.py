@@ -87,7 +87,7 @@ CHARACTERS THAT HAS FUNCTIONALITY IN  A STRING
 \" : Double Quote Character
 '''
 
-sentence = 'it was a rainy day today and a lot of people got stuck from coming to work \n There was also a heavy traffic'
+sentence = '\tit was a rainy\b day today and a lot of people \\just using the backslash here, got stuck from coming to work \n There was also a heavy traffic'
 print(sentence)
 
 
