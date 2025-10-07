@@ -102,6 +102,29 @@ name = "Cosmas"
 sent_1 = f"My name is {name}"
 print("F-string: ", sent_1)
 
+# Repetition of Strings
+repeat = name * 3
+
+# Membership
+is_a_member = "Book" in sent_1
+print("Is a member: ", is_a_member)
+
+# Some methods we use in string.
+replace_word = sent_1.replace("Cosmas", "John")
+
+
+replace_sentence = "My name is John".replace("John", "Doe")  # Replace
+
+strip_sentence = "My name is John ".strip()  # Strip
+
+to_lower = "My name is John".lower()  # Lower Case
+to_upper = "My name is John".upper()  # Upper Case
+print(to_lower)
+
+# title_case = "my name is john".title()  # Title Case
+# find_substring = "My name is John".find("John")  # Find Substring
+# split_string = "My name is John".split()  # Split String into a list
+
 
 # Data Structures in Python
 # Data structures are used to store multiple values in a single variable.
