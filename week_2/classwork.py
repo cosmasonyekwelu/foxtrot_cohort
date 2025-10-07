@@ -14,6 +14,7 @@ print(value_one <= value_two)
 
 # 2. Create two variables: stored_value = 12 and search_input = 12.
 #    Check if they are equal and print the result.
+
 # No 2 answer here
 stored_value = 12
 search_input = 12
@@ -25,6 +26,7 @@ print(check_result)
 #    - if 5 is greater than 10
 #    - if 15 is less than or equal to 20
 #    Print both results.
+
 # No 3 answer here
 is_greater = 5 > 10
 is_less_equal = 15 <= 20
@@ -38,6 +40,7 @@ print(is_less_equal)
 #    age = 20
 #    license = "yes"
 #    Print the result of the comparison.
+
 # No 4 answer here
 age = 24
 driver_license = "yes"
@@ -50,6 +53,7 @@ print(valid_driver)
 #    raining = False
 #    Check if temperature > 30 or raining == True
 #    Print the result.
+
 # No 5 answer here
 temperature = 35
 raining = False
@@ -61,6 +65,8 @@ print(weather_check)
 #    Example:
 #    is_tired = False
 #    Use NOT to make it True and print both values.
+
+# No 6 answer here
 
 is_tired = False
 did_no_work = is_tired
@@ -75,6 +81,7 @@ print(has_worked)
 #    - One using triple single quotes
 #    - One using triple double quotes
 #    Print all of them.
+
 # No 7 answer here
 
 single = 'Single quotes Example'
@@ -91,6 +98,7 @@ print(triple_double)
 
 # 8. Write a sentence that uses \n for a new line and \t for a tab space.
 #    Print it and see how it looks.
+
 # No 8 answer here
 
 print("Hello!\n My name is Cosmas. \tWelcome to Python Backend class.")
@@ -102,6 +110,7 @@ print("Hello!\n My name is Cosmas. \tWelcome to Python Backend class.")
 #    - Change it to uppercase using .upper()
 #    - Change it to lowercase using .lower()
 #    - Print each result.
+
 # No 9 answer here
 
 name = " miracle "
@@ -118,6 +127,7 @@ print(lower_name)
 #     - Use an f-string to print your name inside a sentence (Example: f"My name is {name}")
 #     - Use * (multiplication) to repeat a word 3 times.
 #     - Print all results.
+
 # No 10 answer here
 
 text_one = "Python"
