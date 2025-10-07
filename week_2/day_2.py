@@ -78,11 +78,13 @@ triple_double_quote = """I am in a triple double quote
 I can also be multi-line"""
 
 ''''
-\n : New Line
-\t : Tab
-\\ : Backslash
-\' : Single Quote
-\" : Double Quote
+CHARACTERS THAT HAS FUNCTIONALITY IN  A STRING
+\n : New Line Character
+\t : Tab Character
+\\ : Backslash Character
+\b : Erase a Character
+\' : Single Quote Character
+\" : Double Quote Character
 '''
 
 sentence = 'it was a rainy day today and a lot of people got stuck from coming to work \n There was also a heavy traffic'
