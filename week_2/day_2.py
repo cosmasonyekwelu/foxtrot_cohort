@@ -78,7 +78,7 @@ triple_double_quote = """I am in a triple double quote
 I can also be multi-line"""
 
 ''''
-CHARACTERS THAT HAS FUNCTIONALITY IN  A STRING
+CHARACTERS THAT HAS FUNCTIONALITIES IN  A STRING
 \n : New Line Character
 \t : Tab Character
 \\ : Backslash Character
@@ -89,6 +89,18 @@ CHARACTERS THAT HAS FUNCTIONALITY IN  A STRING
 
 sentence = '\tit was a rainy\b day today and a lot of people \\just using the backslash here, got stuck from coming to work \n There was also a heavy traffic'
 print(sentence)
+
+# Concatination of Strings
+str_1 = "A string"
+str_2 = "is joined"
+concat = str_1 + " " + str_2
+print("Concatenated String: ", concat)
+
+# Interpolation of Strings- passing in a value into a string through a placeholder
+# f-strings are used to embed expressions inside string literals, using curly braces {}.
+name = "Cosmas"
+sent_1 = f"My name is {name}"
+print("F-string: ", sent_1)
 
 
 # Data Structures in Python
