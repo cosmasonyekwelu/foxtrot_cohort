@@ -67,7 +67,6 @@ print(weather_check)
 #    Use NOT to make it True and print both values.
 
 # No 6 answer here
-
 is_tired = False
 did_no_work = is_tired
 has_worked = not is_tired
@@ -83,7 +82,6 @@ print(has_worked)
 #    Print all of them.
 
 # No 7 answer here
-
 single = 'Single quotes Example'
 double = "Double quotes Example"
 triple_single = '''Triple single quotes
@@ -100,7 +98,6 @@ print(triple_double)
 #    Print it and see how it looks.
 
 # No 8 answer here
-
 print("Hello!\n My name is Cosmas. \tWelcome to Python Backend class.")
 
 
@@ -112,7 +109,6 @@ print("Hello!\n My name is Cosmas. \tWelcome to Python Backend class.")
 #    - Print each result.
 
 # No 9 answer here
-
 name = " miracle "
 strip_name = name.strip()
 upper_name = name.upper()
@@ -129,13 +125,10 @@ print(lower_name)
 #     - Print all results.
 
 # No 10 answer here
-
 text_one = "Python"
 text_two = " Programming"
 print(text_one + text_two)
-
 my_name = "Cosmas"
 print(f"My name is {my_name}")
-
 School = "Univelcity"
 print(School * 3)
