@@ -21,7 +21,6 @@ person = {
         "tax": "all paid in full"
     }
 }
-# print(person)
 # print(type(person))
 '''
 print(
@@ -29,5 +28,16 @@ print(
 )
 
 '''
-introduction = f"Hello {person["first_name"]} {person["last_name"]} from {person["nationality"]["nation"]} .It's nice to meet You"
+introduction = f"Hello {person["first_name"]} {person["last_name"]} from {person["nationality"]["nation"]}. It's nice to meet You"
 print(introduction)
+
+# Update or Reassign values in keys
+person["profession"] = "Software Engineer"
+
+# Assign new key with a value in a dictionary
+person["club"] = "Liverpool"
+
+# Delete a key
+del person["gender"]
+
+print(person)
