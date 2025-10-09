@@ -29,5 +29,5 @@ print(
 )
 
 '''
-introduction = f"Hello{person["first_name"]}{person["last_name"]}from{person["nationality"]["nation"]}.It's nice to meet You"
+introduction = f"Hello {person["first_name"]} {person["last_name"]} from {person["nationality"]["nation"]} .It's nice to meet You"
 print(introduction)
