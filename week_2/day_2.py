@@ -115,7 +115,28 @@ concat_tuple = colors + ("orange", "green", "purple")
 # print(concat_tuple)
 
 color_count = colors.count("red")
-print(color_count)
+# print(color_count)
 
 # del colors[0] will not work because it is immutable
-print(colors[3])
+# print(colors[3])
+
+# Sets is a collection of unordered items
+# In Python, sets are mutable, un-indexed and do not contain duplicates.
+# The order of elements in a set is not preserved and can change.
+
+top_4_clubs = {"Arsenal", "Liverpool", "Tottenham", "Bouremouth"}
+# print(top_4_clubs)
+regulars = {"Fullham", "Bouremouth", "Burnley", "Wolves"}
+# print(regulars)
+
+# top_4_clubs.clear() # Clear values out of sets
+
+# common value between set (short cut &)
+intersect = top_4_clubs.intersection(regulars)
+# print(intersect)
+union = top_4_clubs.union(regulars)  # join sets (short cut |)
+# print(union)
+
+# Not common values between sets (short cut -)
+difference = top_4_clubs.difference(regulars)
+print(difference)
