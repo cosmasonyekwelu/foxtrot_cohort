@@ -29,7 +29,7 @@ print(
 
 '''
 introduction = f"Hello {person["first_name"]} {person["last_name"]} from {person["nationality"]["nation"]}. It's nice to meet You"
-print(introduction)
+# print(introduction)
 
 # Update or Reassign values in keys
 person["profession"] = "Software Engineer"
@@ -39,5 +39,14 @@ person["club"] = "Liverpool"
 
 # Delete a key
 del person["gender"]
+
+# searches if the firstname is in the dictionary
+get_first_name = person.get("first_name")
+# searches if the firstname is in the dictionary, If not return the value Adams
+get_first_name_or_return = person.get("first_name", "Adam")
+
+person.pop("age", "Age not found")  # removes a key with its value
+
+person.clear() # Removes the entire key  with its dictionary
 
 print(person)
