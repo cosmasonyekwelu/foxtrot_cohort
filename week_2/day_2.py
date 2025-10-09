@@ -9,3 +9,25 @@ tuple
 set
 '''
 # Dictionary
+person = {
+    "first_name": "Justice",
+    "last_name": "Rivers",
+    "age": 28,
+    "gender": "Male",
+    "profession": "Pet Engineer",
+    "nationality": {
+        "nation": "Nigeria",
+        "nin": 3456789023,
+        "tax": "all paid in full"
+    }
+}
+# print(person)
+# print(type(person))
+'''
+print(
+    person["age"]
+)
+
+'''
+introduction = f"Hello{person["first_name"]}{person["last_name"]}from{person["nationality"]["nation"]}.It's nice to meet You"
+print(introduction)
