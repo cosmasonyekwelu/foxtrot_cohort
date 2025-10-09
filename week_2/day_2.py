@@ -54,10 +54,11 @@ get_first_name_or_return = person.get("first_name", "Adam")
 # List
 datas = ["paul", 22, False, 14.5, person, [1, 2, 3, 4, 5]]
 # print(type(datas))
+'''
 print(
     datas[4]["nationality"]["nin"]
 )
-
+'''
 datas[0] = "John"
 
 del datas[5]
@@ -69,4 +70,52 @@ concat = [1, 2, 3, 4, 5] + [6, 7, 8, 9, 0]  # Concatenation
 is_in_datas = 48 in datas  # Membership
 
 daniel_bryan = ["Yes"] * 4  # Repetition
-print(daniel_bryan)
+# print(daniel_bryan)
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+numbers.append(11)  # Add at the end
+numbers.insert(5, 100)  # Add a data to a particular index
+numbers.pop(6)  # Removes items from the list through index
+numbers.remove(0)  # Removes items from the list through values
+# print(numbers)
+
+# Simple Classwork
+
+nested_number = [2, 46, 33, 1, 6, 3, ["twenty", "Yes", 5,
+                                      6, {"another": [3, 55, 6, "middle", 17]}, 7], 55, 2, 4]
+# Locate yes
+# print(nested_number[6][1])
+
+# Add "end" to the list of another
+# nested_number[6][4]["another"].append("end")
+# print(nested_number)
+
+# Delete the number 7
+# nested_number[6].remove(7)
+# print(nested_number)
+
+# or
+
+# del nested_number[6][5]
+# print(nested_number)
+
+# Tuples
+colors = ("red", "blue", "yellow", "red")  # Immutable
+# print(colors)
+
+# colors[0] ="Orange" will not work because it is immutable
+
+repeat = colors * 2
+# print(repeat)
+
+membership = "blue" in colors
+# print(membership)
+
+concat_tuple = colors + ("orange", "green", "purple")
+# print(concat_tuple)
+
+color_count = colors.count("red")
+print(color_count)
+
+# del colors[0] will not work because it is immutable
+print(colors[3])
