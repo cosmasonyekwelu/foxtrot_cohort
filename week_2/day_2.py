@@ -14,7 +14,7 @@ person = {
     "last_name": "Rivers",
     "age": 28,
     "gender": "Male",
-    "profession": "Pet Engineer",
+    "profession": "Pet Engineer", "tags": ["a, ab"],
     "nationality": {
         "nation": "Nigeria",
         "nin": 3456789023,
@@ -45,8 +45,26 @@ get_first_name = person.get("first_name")
 # searches if the firstname is in the dictionary, If not return the value Adams
 get_first_name_or_return = person.get("first_name", "Adam")
 
-person.pop("age", "Age not found")  # removes a key with its value
+# person.pop("age", "Age not found")  # removes a key with its value
 
-person.clear() # Removes the entire key  with its dictionary
+# person.clear()  # Removes the entire key  with its dictionary
 
-print(person)
+# print(person)
+
+# List
+datas = ["paul", 22, False, 14.5, person, [1, 2, 3, 4, 5]]
+# print(type(datas))
+print(
+    datas[4]["nationality"]["nin"]
+)
+
+datas[0] = "John"
+
+del datas[5]
+
+concat = [1, 2, 3, 4, 5] + [6, 7, 8, 9, 0]  # Concatenation
+
+is_in_datas = 48 in datas  # Membership
+
+daniel_bryan = ["Yes "] * 4  # Repetition
+print(daniel_bryan)
