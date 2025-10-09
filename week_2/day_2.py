@@ -62,9 +62,11 @@ datas[0] = "John"
 
 del datas[5]
 
+# print(datas)
+
 concat = [1, 2, 3, 4, 5] + [6, 7, 8, 9, 0]  # Concatenation
 
 is_in_datas = 48 in datas  # Membership
 
-daniel_bryan = ["Yes "] * 4  # Repetition
+daniel_bryan = ["Yes"] * 4  # Repetition
 print(daniel_bryan)
