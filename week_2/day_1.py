@@ -1,4 +1,4 @@
-# Comparison Operators in Python
+# Comparison Operators in Python.
 # Comparison operators are used to compare two data or values.
 
 '''
@@ -124,5 +124,3 @@ print(to_lower)
 # title_case = "my name is john".title()  # Title Case
 # find_substring = "My name is John".find("John")  # Find Substring
 # split_string = "My name is John".split()  # Split String into a list
-
-

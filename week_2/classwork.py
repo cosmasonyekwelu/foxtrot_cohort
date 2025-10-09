@@ -1,4 +1,4 @@
-# ====================== PYTHON BEGINNER CLASSWORK ======================
+# ====================== PYTHON BEGINNER CLASSWORK =======================
 
 # 1. Write 3 examples using comparison operators (==, !=, >, <, >=, <=).
 #    Print the result for each one.
