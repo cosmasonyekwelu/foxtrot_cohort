@@ -18,6 +18,7 @@ elif course == "3":
     backend_development.append(name)
 else:
     print("You choses the wrong option. You are to choose between 1, 2 or 3.")
-    print("UI/UX Design:", ui_ux_design)
-    print("Frontend Development:", frontend_development)
-    print("Backend Development:", backend_development)
+
+print("UI/UX Design:", ui_ux_design)
+print("Frontend Development:", frontend_development)
+print("Backend Development:", backend_development)
