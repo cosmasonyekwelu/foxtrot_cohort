@@ -280,7 +280,7 @@ print("Univelcity" * 3)
 
 ### ✅ Summary
 
-By the end of Week 2, you learned:
+By the end of Week 2, I learned:
 
 - How to compare values using **comparison operators**
 - How to make logical decisions using **and**, **or**, **not**
