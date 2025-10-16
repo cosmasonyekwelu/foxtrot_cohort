@@ -89,12 +89,39 @@ else:
 """
 
 # Next
+"""
+people = ["John", "Peter", "Ade", "Oluadamilare", "King"]
+name = input("Who do you want to delete: ")
+for person in people:
+    if person == name:
+        people.remove(person)
+        print(f"{person} Deleted.")
+        break
+else:
+    print("The person is not found.")
+"""
+
+# Using strip for white spaces
+"""
+people = ["John", "Peter", "Ade", "Oluadamilare", "King"]
+name = input("Who do you want to delete: ").strip()
+for person in people:
+    if person == name:
+        people.remove(person)
+        print(f"{person} Deleted.")
+        break
+else:
+    print("The person is not found.")
+"""
+
+# small  and capital letters letter
 
 people = ["John", "Peter", "Ade", "Oluadamilare", "King"]
-searched_name = input("Who do you want to delete: ")
+name = input("Who do you want to delete: ").strip()
 for person in people:
-    if person == searched_name:
+    if name.lower() == person.lower():
         people.remove(person)
-        print(people)
+        print(f"{person} Deleted.")
+        break
 else:
     print("The person is not found.")
