@@ -1,11 +1,16 @@
 # LOOP  is a block of code that keeps on running till a condition is meet.
+
 # Loops in Python are used to repeat actions efficiently.
+
 # The main types are For loops (counting through items) and While loops (based on conditions).
+
 # While Loop
 # In Python, a while loop is used to execute a block of statements repeatedly until a given condition is satisfied.
 # When the condition becomes false,
 # the line immediately after the loop in the program is executed.
-# NB: multiple line comment is used for block of codes
+
+# NB: multiple line comment is used for block of codes for easy debugging.
+
 """
 num = 0
 while num < 10:
@@ -16,6 +21,7 @@ num = num + 1
 # Infinite While Loop
 # If we want a block of code to execute infinite number of times
 # then we can use the while loop in Python to do so.
+
 """
 while (True):
 print("Hello World!")
@@ -25,6 +31,7 @@ print("Hello World!")
 # For loops is used to iterate over a sequence such as a list, tuple, string or range.
 # It allow to execute a block of code repeatedly, once for each item in the sequence.
 # The break statement in Python brings control out of the loop.
+
 """
 people = ["John", "Peter", "Ade", "Oluadamilare", "King"]
 
@@ -39,7 +46,9 @@ for person in people:
 else: #Runs the loop has stopped
     print("The person is not found.")
 """
+
 # Classwork
+
 """
 first_num = [1, 2, 3, 4, 5]
 second_num = [6, 7, 8, 9, 10]
@@ -52,7 +61,9 @@ for num in second_num:
 
 print(first_num)
 """
+
 # Next  task
+
 """
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 updated = []
@@ -65,6 +76,7 @@ else:
 """
 
 # Next task
+
 """
 people = ["John", "Peter", "Ade", "Oluadamilare", "King"]
 email_users = []
