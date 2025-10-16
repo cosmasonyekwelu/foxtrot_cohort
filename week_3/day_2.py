@@ -24,7 +24,7 @@ print("Hello World!")
 #     For Loop
 # For loops is used to iterate over a sequence such as a list, tuple, string or range.
 # It allow to execute a block of code repeatedly, once for each item in the sequence.
-#
+# The break statement in Python brings control out of the loop.
 """
 people = ["John", "Peter", "Ade", "Oluadamilare", "King"]
 
@@ -65,7 +65,7 @@ else:
 """
 
 # Next task
-
+"""
 people = ["John", "Peter", "Ade", "Oluadamilare", "King"]
 email_users = []
 
@@ -74,3 +74,15 @@ for person in people:
     email_users.append(email_address)
 else:
     print(email_users)
+"""
+
+# Next
+
+people = ["John", "Peter", "Ade", "Oluadamilare", "King"]
+searched_name = input("Who do you want to delete: ")
+for person in people:
+    if person == searched_name:
+        people.remove(person)
+        print(people)
+else:
+    print("The person is not found.")
