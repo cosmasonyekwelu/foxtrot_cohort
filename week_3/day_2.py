@@ -21,15 +21,35 @@
 # For loops is used to iterate over a sequence such as a list, tuple, string or range.
 # It allow to execute a block of code repeatedly, once for each item in the sequence.
 #
-people = ["John", "Peter", "Ade", "Oluadamilare", "King"]
+# people = ["John", "Peter", "Ade", "Oluadamilare", "King"]
 
+# # for person in people:
+# #     print(person)
+
+# searched_name = input("Who are you looking for")
 # for person in people:
-#     print(person)
+#     if person == searched_name:
+#         print(f"Person found: {person}")
+#         break # Stops the loop
+# else: #Runs the loop has stopped
+#     print("The person is not found.")
 
-searched_name = input("Who are you looking for")
-for person in people:
-    if person == searched_name:
-        print(f"Person found: {person}")
-        break
+first_num = [1, 2, 3, 4, 5]
+second_num = [6, 7, 8, 9, 10]
+
+# answer : [1,2,3,4,5,6,7,8,9,10]
+# hint use append()
+
+# for num in second_num:
+#     first_num.append(num)
+
+# print(first_num)
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+updated = []
+for num in numbers:
+    num = num * 2
+    updated.append(num)
 else:
-    print("The person is not found.")
+    print("Numbers:", numbers)
+    print("Updated Numbers:", updated)
