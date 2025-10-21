@@ -31,6 +31,7 @@ This repo contains my daily progress, notes, and practice files from the [Backen
 - **Virtual Environment** (`venv`)
 - **Git & GitHub** for version control
 - **VS Code** for coding
+- **Postman** for API testing
 
 ---
 
