@@ -17,12 +17,10 @@ This repo contains my daily progress, notes, and practice files from the [Backen
 
 ## ✅ Progress Tracker
 
-- **Week 1**
-  - [x] Day 1 → Introduction to Python, Backend, Git, CLI
-  - [x] Day 2 → Variables, Data Types, Operators, Casting
-  - [ ] Day 3 → _Coming soon..._
-  - [ ] Day 4 → _Coming soon..._
-  - [ ] Day 5 → _Coming soon..._
+- **Week 1 completed**
+- **Week 2 completed**
+- **Week 3 completed**
+- **Week 4 in progress**
 
 ---
 
