@@ -1,3 +1,5 @@
+from my_module import my_addition_function
+from functools import reduce
 # Higher Order Functions
 # Higher Order Functions are functions that take a function as an argument, or return a function as its result.
 # This is possible because functions in Python are first-class objects, meaning:
@@ -37,6 +39,8 @@ numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 # print(list(map_func))
 
+# print(my_addition_function(5, 10))
+
 # filter(function, iterable) :Return a new filtered list
 # filter() function is used to extract elements from an iterable
 # (like a list, tuple or set) that satisfy a given condition.
@@ -47,15 +51,36 @@ numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
 def no_remainder(item):
-    print(item)
+    # print(item)
     return item % 2 == 0
 
 
 filter_func = filter(no_remainder, numbers)
-print(list(filter_func))
+# print(list(filter_func))
 
-# reduce(function, iterable)
+# reduce(function, iterable, initial_value) Return a reduced value of the iterable
 # What it does:
-# reduce() applies a rolling computation on items in a sequence 
+# reduce() applies a rolling computation on items in a sequence
 # it reduces the iterable to a single cumulative value.
-# Unlike map() and filter(), it’s not a built-in function — you have to import it from functools.
+# Unlike map() and filter(), it’s not a built-in function
+# you have to import it from functools. # from functools import reduce
+
+
+# def concatenate(param_one, param_two):
+#     print(param_one, param_two)
+#     return param_one + param_two
+
+
+# reduce_func = reduce(concatenate, numbers)
+# print(reduce_func)
+
+sentence = ["A", "stitch", "in", "time", "saves", "nine"]
+
+
+def concatenate(param_one, param_two):
+    print(param_one, param_two)
+    return param_one + " " + param_two
+
+
+reduce_func = reduce(concatenate, sentence)
+print(reduce_func)
