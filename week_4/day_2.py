@@ -92,14 +92,17 @@ print(reduce_func)
 filter_func = filter(lambda item: item % 2 == 0, numbers)
 # print(list(filter_func))
 
+# Nested Functions
+# A nested function is a function defined inside another function.
+
 
 def outer_function():
     def inner_function():
         return "Hello from inner function!"
-    return inner_function
+    return inner_function()
 
 
-print(outer_function()())
+print(outer_function())
 
 
 # List Comprehensions
