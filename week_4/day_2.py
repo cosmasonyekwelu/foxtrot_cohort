@@ -84,3 +84,12 @@ def concatenate(param_one, param_two):
 
 reduce_func = reduce(concatenate, sentence)
 print(reduce_func)
+
+# Lambda Functions are anonymous functions means that the function is without a name.
+# As we already know def keyword is used to define a normal function in Python.
+# Similarly, lambda keyword is used to define an anonymous function in Python.
+
+filter_func = filter(lambda item: item % 2 == 0, numbers)
+# print(list(filter_func))
+def outer 
+
