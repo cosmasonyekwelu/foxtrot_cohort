@@ -91,5 +91,22 @@ print(reduce_func)
 
 filter_func = filter(lambda item: item % 2 == 0, numbers)
 # print(list(filter_func))
-def outer 
 
+
+def outer_function():
+    def inner_function():
+        return "Hello from inner function!"
+    return inner_function
+
+
+print(outer_function()())
+
+
+# List Comprehensions
+# A list comprehension is a concise way to create lists from existing iterables
+# (like lists, tuples, or ranges) — using a single line of code.
+# It’s essentially a shorter, more readable version of a loop that builds a list.
+# [expression for item in iterable if condition]
+
+New_list = [item + 2 for item in numbers if item % 2 == 0]
+print(New_list)
