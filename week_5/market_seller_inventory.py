@@ -50,7 +50,7 @@ def search_goods():
         if keyword in good["name"].lower() or keyword in good["category"].lower():
             print("Name:", good["name"],
                   "| Category:", good["category"],
-                  "| Price: ₦" + str(good["price"]),
+                  "| Price:" + str(good["price"]),
                   "| Date:", good["date_of_arrival"],
                   "| Quantity:", good["quantity"])
             found = True
