@@ -20,7 +20,9 @@ This repo contains my daily progress, notes, and practice files from the [Backen
 - **Week 1 completed**
 - **Week 2 completed**
 - **Week 3 completed**
-- **Week 4 in progress**
+- **Week 4 completed**
+- **Week 5 completed**
+- **Week 6 in progress**
 
 ---
 
