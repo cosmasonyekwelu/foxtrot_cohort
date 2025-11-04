@@ -29,6 +29,26 @@ import json
 
 x = {"name": "Alice", "age": 30, "city": "New York"}
 
-with open("store.json", "w") as store:
-    convert_to_json = json.dumps(x)
-    store.write(convert_to_json)
+# with open("store.json", "w") as store:
+#     convert_to_json = json.dumps(x)
+#     store.write(convert_to_json)
+
+# Read
+# with open("store.json") as f:
+#     content = json.loads(f.read())
+#     print(type(content))
+
+
+# types of methods
+
+class Main:
+    def unique(self):
+        pass
+
+    @classmethod
+    def generic(cls):
+        pass
+
+    @staticmethod
+    def utility():
+        pass
