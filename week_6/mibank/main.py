@@ -27,6 +27,5 @@ class Main:
                     print("Invalid option. Please choose a number between 1 and 4.")
 
 
-if __name__ == "__main__":
-    main = Main("MiBank", 2025)
-    main.run()
+main = Main("MiBank", 2025)
+main.run()
