@@ -1,9 +1,12 @@
+from register import Register
 
 
 class Main:
     def __init__(self, name, founded):
         self.name = name
         self.founded = founded
+
+        self.register = Register()
 
     def run(self):
         print(
@@ -15,7 +18,7 @@ class Main:
 
             match option:
                 case "1":
-                    print("Account creation selected.")
+                    self.register.run()
                 case "2":
                     print("Withdrawal option selected.")
                 case "3":
