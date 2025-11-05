@@ -1,4 +1,5 @@
 from register import Register
+from deposit import Deposit
 
 
 class Main:
@@ -6,29 +7,31 @@ class Main:
         self.name = name
         self.founded = founded
 
+        # Composition
         self.register = Register()
+        self.deposit = Deposit()
 
     def run(self):
         print(
-            f"{'~' * 24}\n Welcome to {self.name} (Founded {self.founded})\n{'~' * 24}")
-
+            f"{"~~" * 24}\nWelcome to {self.name}. What do you want to do today?\n{"~~" * 24}")
         while True:
-            option = input(
-                "1. Create an Account\n2. Withdraw Money\n3. View Balance\n4. Exit\nChoose an option (1-4): ")
+            options = input(
+                "1. Create an account.\n2. Deposit money\n3. Withdraw money. \n4. View balance.\n5. Exit.\nChoose(1|2|3|4|5):")
 
-            match option:
+            match options:
                 case "1":
                     self.register.run()
                 case "2":
-                    print("Withdrawal option selected.")
+                    self.deposit.run()
                 case "3":
-                    print("Viewing balance...")
+                    print(2)
                 case "4":
-                    print("Exiting... Thank you for banking with us!")
+                    print(3)
+                case "5":
                     break
                 case _:
-                    print("Invalid option. Please choose a number between 1 and 4.")
+                    print("Wrong option. Choose between 1 to 5.")
 
 
-main = Main(name="MiBank", founded=2025)
+main = Main(name="Mibank", founded=2025)
 main.run()
