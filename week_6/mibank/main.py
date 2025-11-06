@@ -1,5 +1,7 @@
 from register import Register
 from deposit import Deposit
+from withdraw import Withdraw
+from view_balance import ViewBalance
 
 
 class Main:
@@ -10,6 +12,8 @@ class Main:
         # Composition
         self.register = Register()
         self.deposit = Deposit()
+        self.withdraw = Withdraw()
+        self.view_balance = ViewBalance()
 
     def run(self):
         print(
@@ -24,9 +28,9 @@ class Main:
                 case "2":
                     self.deposit.run()
                 case "3":
-                    print(2)
+                    self.withdraw.run()
                 case "4":
-                    print(3)
+                    self.view_balance.run()
                 case "5":
                     break
                 case _:
