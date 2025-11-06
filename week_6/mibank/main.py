@@ -22,7 +22,7 @@ class Main:
             f"{"~~" * 24}\nWelcome to {self.name}. What do you want to do today?\n{"~~" * 24}")
         while True:
             options = input(
-                "1. Create an account.\n2. Deposit money\n3. Withdraw money. \n4. View balance.\n5. Exit.\nChoose(1|2|3|4|5|6):")
+                "1. Create an account.\n2. Deposit money\n3. Withdraw money. \n4. View balance.\n5. Transfer.\n6. Exit.\nChoose(1|2|3|4|5|6):")
 
             match options:
                 case "1":
