@@ -1,26 +1,21 @@
-import json
+from model import Model
 
 
-class Model:
-    @staticmethod
-    def save_a_file(name_of_file, content):
-        with open(name_of_file, "w") as store:
-            convert_to_json = json.dumps(content)
-            store.write(convert_to_json)
+class Deposit(Model):
+    def __init__(self):
+        self.accounts = self.load_a_file(name_of_file="store.json")
 
-    @staticmethod
-    def load_a_file(name_of_file):
-        with open(name_of_file) as store:
-            content = json.loads(store.read())
-            return content
+    def run(self):
+        account_no = input("What is your account number: ")
 
-
-def decor(func):
-    def wrapper():
-        print("perform task 1")
-        func()
-        print("perform last task")
-    return wrapper
-
-
-
+        for user in self.accounts:
+            if int(account_no) == user['account_number']:
+                amount = input("How much do you want to deposit?: ")
+                user['account_balance'] += float(amount)
+                self.save_a_file(name_of_file="store.json",
+                                 content=self.accounts)
+                print(
+                    f"{"==" * 24}\n{amount} has been added to your account.\n{"==" * 24}")
+                break
+        else:
+            print("No such account number was found.")
