@@ -52,3 +52,28 @@ class Main:
     @staticmethod
     def utility():
         pass
+
+
+# @decor
+# def listen():
+#     print("i am listening")
+#     return True
+
+
+# listen()
+
+
+# def decor(func):
+#     def wrapper():
+#         print("Check if logged in")
+#         func()
+#     return wrapper
+
+
+# @decor
+# def listen():
+#     print("makes request")
+#     return True
+
+
+# listen()

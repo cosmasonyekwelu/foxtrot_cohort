@@ -13,3 +13,14 @@ class Model:
         with open(name_of_file) as store:
             content = json.loads(store.read())
             return content
+
+
+def decor(func):
+    def wrapper():
+        print("perform task 1")
+        func()
+        print("perform last task")
+    return wrapper
+
+
+
