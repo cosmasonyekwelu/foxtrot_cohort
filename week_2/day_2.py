@@ -1,4 +1,6 @@
-# ----- DATA STRUCTURES ------ 
+# Data Structures in Python.
+# Data structures are used to store multiple values in a single variable.
+# There are four built-in data structures in Python: List, Tuple, Set, Dictionary.
 
 '''
 dictionary
@@ -6,118 +8,135 @@ list
 tuple
 set
 '''
-
 # Dictionary
 person = {
     "first_name": "Justice",
-    "last_name":  "Rivers",
+    "last_name": "Rivers",
     "age": 28,
     "gender": "Male",
-    "profession": "Petroleum Engineer",
+    "profession": "Pet Engineer", "tags": ["a, ab"],
     "nationality": {
         "nation": "Nigeria",
-        "nin": 3454575632425,
-         "tax": "im a free man"
-    },
-    "tags": ["a", "sd"]
+        "nin": 3456789023,
+        "tax": "all paid in full"
+    }
 }
-
 # print(type(person))
+'''
+print(
+    person["age"]
+)
 
-introduction  = f"Hello {person["first_name"]} {person["last_name"]} from {person["nationality"]["nation"]}. It's nice to meet you."
+'''
+introduction = f"Hello {person["first_name"]} {person["last_name"]} from {person["nationality"]["nation"]}. It's nice to meet You"
+# print(introduction)
 
-# Update or reassign values in keys.
+# Update or Reassign values in keys
 person["profession"] = "Software Engineer"
 
-#Assign new key with a value in a dictionary
+# Assign new key with a value in a dictionary
 person["club"] = "Liverpool"
 
-# Deletes a key with it's value
+# Delete a key
 del person["gender"]
 
-get_first_name = person.get("first_name", "Adams") # Searches if first_name is in the dictionary, if not return the value Adams.
+# searches if the firstname is in the dictionary
+get_first_name = person.get("first_name")
+# searches if the firstname is in the dictionary, If not return the value Adams
+get_first_name_or_return = person.get("first_name", "Adam")
 
- # removes a key with it's value
+# person.pop("age", "Age not found")  # removes a key with its value
 
-# person.clear() # removes the entire key with it's dictionary
+# person.clear()  # Removes the entire key  with its dictionary
 
-# str = "This is string"
+# print(person)
 
 # List
-datas = ["Paul", 22, False, 14.5, person, [1,2,3,4,5]]
+datas = ["paul", 22, False, 14.5, person, [1, 2, 3, 4, 5]]
 # print(type(datas))
+'''
+print(
+    datas[4]["nationality"]["nin"]
+)
+'''
+datas[0] = "John"
 
+del datas[5]
 
-datas[0] = "John" # Assigning value into an existing list
+# print(datas)
 
-del datas[5] # deleting data inside a list
+concat = [1, 2, 3, 4, 5] + [6, 7, 8, 9, 0]  # Concatenation
 
-concat = [1,2,3,4,5] + [6,7,8,9,0] # Concatenation
+is_in_datas = 48 in datas  # Membership
 
-is_in_datas = 48 in datas # Membership
+daniel_bryan = ["Yes"] * 4  # Repetition
+# print(daniel_bryan)
 
-daniel_bryan = ["Yes"] * 4 # Repitition
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+numbers.append(11)  # Add at the end
+numbers.insert(5, 100)  # Add a data to a particular index
+numbers.pop(6)  # Removes items from the list through index
+numbers.remove(0)  # Removes items from the list through values
+# print(numbers)
 
+# Simple Classwork
 
-numbers = [1,2,3,4,5,6,7,8,9,0, "end"]
-
-numbers.append(11) # adds at the end
-
-numbers.insert(5, 100) # Add a data at a particular index
-
-numbers.pop(3) # Removes items from the list through the index
-
-numbers.remove(0) # Removes items from the list through the value
-
-
-# Simple classwork
-nested_numbers = [2, 46, 33, 1, 6, 3,["twenty", "yes", 5, 6, {"another": [3, 55, 6, "middle", 17]},7], 55, 2, 4]
-
+nested_number = [2, 46, 33, 1, 6, 3, ["twenty", "Yes", 5,
+                                      6, {"another": [3, 55, 6, "middle", 17]}, 7], 55, 2, 4]
 # Locate yes
-# add "end" to the list of another
-# delete the number 7
+# print(nested_number[6][1])
 
-# print(
-#     nested_numbers[6][1]
-# )
+# Add "end" to the list of another
+# nested_number[6][4]["another"].append("end")
+# print(nested_number)
 
-nested_numbers[6][4]['another'].append("end")
+# Delete the number 7
+# nested_number[6].remove(7)
+# print(nested_number)
 
-del nested_numbers[6][5]
+# or
 
+# del nested_number[6][5]
+# print(nested_number)
 
-# Tuple
+# Tuples
+colors = ("red", "blue", "yellow", "red")  # Immutable
+# print(colors)
 
-colors = ("red", 'blue', "yellow", "red") # Immutable
-
-# colors[0] = "orange" # This does not work because it is immutable
+# colors[0] ="Orange" will not work because it is immutable
 
 repeat = colors * 2
+# print(repeat)
+
 membership = "blue" in colors
-concat = colors + ("orange", "green", "purple")
+# print(membership)
 
-c = colors.count("red")
+concat_tuple = colors + ("orange", "green", "purple")
+# print(concat_tuple)
 
-# del colors[0] # This does not work because it is immutable
+color_count = colors.count("red")
+# print(color_count)
 
+# del colors[0] will not work because it is immutable
+# print(colors[3])
 
-# Set
-top_4 = {"Arsenal", "Liverpool", "Tottenham", "Bournemouth"}
+# Sets is a collection of unordered items
+# In Python, sets are mutable, un-indexed and do not contain duplicates.
+# The order of elements in a set is not preserved and can change.
 
-regulars = {"Fulham", "Bournemouth", "Burnley", "Wolves"}
+top_4_clubs = {"Arsenal", "Liverpool", "Tottenham", "Bouremouth"}
+# print(top_4_clubs)
+regulars = {"Fullham", "Bouremouth", "Burnley", "Wolves"}
+print(regulars)
 
-#top_4.clear() # Clear values out of set
-# Check for other methods to use as well.
+# top_4_clubs.clear() # Clear values out of sets
 
-intersect = top_4.intersection(regulars) # Common value between two sets # Short from for intersection -> top_4 & regulars
-union = top_4.union(regulars) # Joins sets # short form for union -> top_4 | regulars
-difference = top_4.difference(regulars) # Not common values between sets # short form for difference -> top_4 - regulars
+# common value between set (short cut &)
+intersect = top_4_clubs.intersection(regulars)
+# print(intersect)
+union = top_4_clubs.union(regulars)  # join sets (short cut |)
+# print(union)
 
+# Not common values between sets (short cut -)
+difference = top_4_clubs.difference(regulars)
 print(difference)
-
-
-
-
-
-
-

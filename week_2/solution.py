@@ -1,15 +1,21 @@
-# ====================== PYTHON BEGINNER CLASSWORK =======================
+# ====================== PYTHON BEGINNER CLASSWORK ======================
 
 # 1. Write 3 examples using comparison operators (==, !=, >, <, >=, <=).
 #    Print the result for each one.
 
+
 # No 1 answer here
-value_one = 10
-value_two = 5
-value_three = 10
-print(value_one == value_three)
-print(value_three >= value_two)
-print(value_one <= value_two)
+x = 2
+y = 4
+
+# Example 1
+compare_1 = x == y
+
+# Example 2
+compare_2 = x > y
+
+# Example 2
+compare_3 = x <= y
 
 
 # 2. Create two variables: stored_value = 12 and search_input = 12.
@@ -18,8 +24,9 @@ print(value_one <= value_two)
 # No 2 answer here
 stored_value = 12
 search_input = 12
-check_result = stored_value == search_input
-print(check_result)
+
+is_equal = stored_value == search_input
+print(is_equal)
 
 
 # 3. Use comparison operators to check:
@@ -27,11 +34,12 @@ print(check_result)
 #    - if 15 is less than or equal to 20
 #    Print both results.
 
+
 # No 3 answer here
 is_greater = 5 > 10
-is_less_equal = 15 <= 20
+is_less_than_or_equal_to = 10 < 20
 print(is_greater)
-print(is_less_equal)
+print(is_less_than_or_equal_to)
 
 
 # 4. Use logical operators to check:
@@ -42,10 +50,11 @@ print(is_less_equal)
 #    Print the result of the comparison.
 
 # No 4 answer here
-age = 24
-driver_license = "yes"
-valid_driver = age >= 18 and driver_license == "yes"
-print(valid_driver)
+age = 20
+license = "yes"
+
+is_drivers_licence = age >= 18 and license
+print(is_drivers_licence)
 
 
 # 5. Use OR (||) to check if one of these is true:
@@ -57,9 +66,9 @@ print(valid_driver)
 # No 5 answer here
 temperature = 35
 raining = False
-weather_check = temperature > 30 or raining == True
-print(weather_check)
 
+is_one_true = temperature > 30 or raining
+print(is_one_true)
 
 # 6. Use NOT to flip the value of a variable:
 #    Example:
@@ -68,10 +77,7 @@ print(weather_check)
 
 # No 6 answer here
 is_tired = False
-did_no_work = is_tired
-has_worked = not is_tired
-print(did_no_work)
-print(has_worked)
+negate = not is_tired
 
 
 # 7. Create 4 string variables:
@@ -82,24 +88,19 @@ print(has_worked)
 #    Print all of them.
 
 # No 7 answer here
-single = 'Single quotes Example'
-double = "Double quotes Example"
-triple_single = '''Triple single quotes
-Example'''
-triple_double = """Triple double quotes
-Example"""
-print(single)
-print(double)
-print(triple_single)
-print(triple_double)
+str1 = 'single quote'
+str2 = "double quote"
+str3 = ''' triple singe quote'''
+str4 = """triple double quote"""
+print(str1, str2, str3, str4)
 
 
 # 8. Write a sentence that uses \n for a new line and \t for a tab space.
 #    Print it and see how it looks.
 
 # No 8 answer here
-print("Hello!\n My name is Cosmas. \tWelcome to Python Backend class.")
-
+letter = "Hello Sir,\n\tI want to express my gratitude."
+print(letter)
 
 # 9. Use string methods:
 #    - Make a string called name = " miracle "
@@ -108,15 +109,17 @@ print("Hello!\n My name is Cosmas. \tWelcome to Python Backend class.")
 #    - Change it to lowercase using .lower()
 #    - Print each result.
 
+
 # No 9 answer here
 name = " miracle "
-strip_name = name.strip()
-upper_name = name.upper()
-lower_name = name.lower()
-print(strip_name)
-print(upper_name)
-print(lower_name)
+remove_spaces = name.strip()
+to_upper = name.upper()
+to_lower = name.lower()
 
+print(name)
+print(remove_spaces)
+print(to_upper)
+print(to_lower)
 
 # 10. Do the following with strings:
 #     - Concatenate two strings, for example: "Python" + " Programming"
@@ -124,11 +127,14 @@ print(lower_name)
 #     - Use * (multiplication) to repeat a word 3 times.
 #     - Print all results.
 
+
 # No 10 answer here
-text_one = "Python"
-text_two = " Programming"
-print(text_one + text_two)
-my_name = "Cosmas"
-print(f"My name is {my_name}")
-School = "Univelcity"
-print(School * 3)
+str5 = "Hello"
+str6 = "World"
+
+concat = str5 + " " + str6
+interpolation = f"My first text word in programming is {str5} {str6}"
+repitition = str5 * 3
+print(concat)
+print(interpolation)
+print(repitition)
