@@ -22,7 +22,8 @@ This repo contains my daily progress, notes, and practice files from the [Backen
 - **Week 3 completed**
 - **Week 4 completed**
 - **Week 5 completed**
-- **Week 6 in progress**
+- **Week 6 completed**
+- **Week 7 in progress**
 
 ---
 
@@ -33,7 +34,7 @@ This repo contains my daily progress, notes, and practice files from the [Backen
 - **Virtual Environment** (`venv`)
 - **Git & GitHub** for version control
 - **VS Code** for coding
-- **Postman** for API testing
+- **Postman / Insomnia** for API testing
 
 ---
 
