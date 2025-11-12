@@ -1,0 +1,110 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtual Environments ---
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+
+# --- Environment / Secrets ---
+*.env
+.env.*
+*.key
+*.pem
+config.json
+secrets.json
+credentials.json
+
+# --- IDE / Editor ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+
+# --- OS Files ---
+.DS_Store
+Thumbs.db
+
+# --- Logs / Caches ---
+*.log
+*.tmp
+*.cache/
+logs/
+.cache/
+.pytest_cache/
+coverage/
+htmlcov/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtual Environments ---
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+
+# --- Environment / Secrets ---
+*.env
+.env.*
+*.key
+*.pem
+config.json
+secrets.json
+credentials.json
+
+# --- IDE / Editor ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.bak
+
+# --- OS Files ---
+.DS_Store
+Thumbs.db
+
+# --- Logs / Caches ---
+*.log
+*.tmp
+*.cache/
+logs/
+.cache/
+.pytest_cache/
+coverage/
+htmlcov/
+
+# --- Build / Distribution ---
+build/
+dist/
+*.egg-info/
+.eggs/
+MANIFEST
+
+# --- Jupyter Notebooks ---
+.ipynb_checkpoints/
+
+# --- Testing / Coverage ---
+.tox/
+.nox/
+.coverage
+coverage.xml
+pytestdebug.log
+
+# --- MyPy / Type checking ---
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# --- Other Tools ---
+.pyre/
+.pytype/

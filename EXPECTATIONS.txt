@@ -1,0 +1,60 @@
+"EXPECTATION FOR BACKEND WITH PYTHON & DJANGO" 
+
+Course: Univelcity, Backend with Python & Django  
+Date Started Classes: September 30 2025  
+Cohort: Foxtrot Cohort  
+Learner: Cosmas Onyekwelu  
+
+---
+
+## 1. Skill & Knowledge Goals
+
+- Gain strong understanding of **backend development** using Python and Django  
+- Learn how to build, deploy, and maintain web applications (APIs, web views, logic)  
+- Master the Django ORM (models, migrations, queries)  
+- Understand HTTP, RESTful routing, middleware, authentication, and security  
+- Work with databases (PostgreSQL, MySQL, SQLite) and connect Django to data stores  
+- Implement user registration, login systems, permissions, and CRUD operations  
+- Learn deployment and hosting strategies (e.g. on Linux servers)  
+- Understand version control (Git), CI/CD, and project structure best practices  
+
+---
+
+## 2. Project & Portfolio Goals
+
+- Build at least **2–3 real-world backend projects** (e.g. blog, task manager, API service)  
+- Deploy at least one project to a live server (Heroku, DigitalOcean, or my  own Linux VM at Home)  
+- Document code, tests, and setup so others can run your projects  
+- Share progress publicly (GitHub, blog, social media) to solidify learning  
+
+---
+
+## 3. Learning Habits & Discipline
+
+- Code **daily or on consistent schedule** — aim for progress, not perfection  
+- Commit early and commit often; keep version history meaningful  
+- Write tests for core functionality wherever possible  
+- Read documentation (Django, Python, libraries) — practice with real examples  
+- Ask questions, revisit errors, and log reflections in a journal  
+- Pair peer learning or cohort collaboration — share ideas and code  
+
+---
+
+## 4. Personal Growth & Outcomes
+
+- Gain confidence in backend development to build full-stack applications in future  
+- Use the skills to contribute to open source or freelance backend tasks  
+- Build a portfolio that demonstrates strong backend foundations  
+- Lay groundwork to learn frontend, DevOps, data engineering, or full-stack  
+
+---
+
+## 5. Accountability & Reflection
+
+- Post weekly updates with summary, code, challenges  
+- Reflect on what stuck, what needs review, and next steps  
+- Use this expectation document as a checkpoint — revisit mid-course  
+
+---
+
+I’m excited for this journey ahead. Let’s build something meaningful.  
