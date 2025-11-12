@@ -24,6 +24,48 @@ credentials.json
 .idea/
 *.swp
 *.swo
+*.bak
+
+# --- OS Files ---
+.DS_Store
+Thumbs.db
+
+# --- Logs / Caches ---
+*.log
+*.tmp
+*.cache/
+logs/
+.cache/
+.pytest_cache/
+coverage/
+htmlcov/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtual Environments ---
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+
+# --- Environment / Secrets ---
+*.env
+.env.*
+*.key
+*.pem
+config.json
+secrets.json
+credentials.json
+
+# --- IDE / Editor ---
+.vscode/
+.idea/
+*.swp
+*.swo
 *.swn
 *.bak
 
