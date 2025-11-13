@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from myproject import views
 from django.conf.urls.static import static
 from django.conf import settings
@@ -29,7 +29,8 @@ urlpatterns = [
     path("xml/", views.xml_func),
     path("img/", views.image_func),
     path("pdf/", views.pdf_func),
-    path("vid/", views.vid_func)
+    path("vid/", views.vid_func),
+    path("market/", include("market.urls"))
 ]
 
 if settings.DEBUG:
