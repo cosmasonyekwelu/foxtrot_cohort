@@ -28,7 +28,8 @@ urlpatterns = [
     path("csv/", views.csv_func),
     path("xml/", views.xml_func),
     path("img/", views.image_func),
-    path("pdf/", views.pdf_func)
+    path("pdf/", views.pdf_func),
+    path("vid/", views.vid_func)
 ]
 
 if settings.DEBUG:

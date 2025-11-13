@@ -58,3 +58,12 @@ def pdf_func(request):
     except FileNotFoundError:
         return HttpResponse("File not found", status=500)
     return HttpResponse(pdf_content, content_type="application/pdf")
+
+
+def vid_func(request):
+    vid_path = os.path.join("media", "videosample.mp4")
+    try:
+        with open(vid_path, 'rb') as vid_file:
+            return HttpResponse(vid_file.read(), content_type="video/mp4")
+    except FileNotFoundError:
+        return HttpResponse("File not found", status=404)
