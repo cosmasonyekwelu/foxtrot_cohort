@@ -72,6 +72,7 @@ credentials.json
 # --- OS Files ---
 .DS_Store
 Thumbs.db
+media
 
 # --- Logs / Caches ---
 *.log

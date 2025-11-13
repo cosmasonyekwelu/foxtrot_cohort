@@ -16,9 +16,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import say_something
+from myproject import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("say/", say_something)
+    path("say/", views.say_something),
+    path("", views.html_func),
+    path("text/", views.text_func),
+    path("csv/", views.csv_func),
+    path("xml/", views.xml_func),
+    path("img/", views.image_func),
+    path("pdf/", views.pdf_func)
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
