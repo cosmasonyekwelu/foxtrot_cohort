@@ -1,4 +1,5 @@
 from django.http import JsonResponse
+import json
 
 
 # ====== SAMPLE PRODUCT DATA (List of Dicts) ====== #
@@ -86,8 +87,41 @@ def get_product(request):
             status=405
         )
 
+
 def create_product(request):
     if request.method == "POST":
-        return JsonResponse({"message":"Product created successful"})
+        incoming_data = request.body.decode()
+        to_dict = json.loads(incoming_data)
+        print(to_dict)
+        market_product.append({"id": len(market_product) + 1, ** to_dict})
+        return JsonResponse({"message": "Product created successful"}, status=201)
+    else:
+        return JsonResponse({"message": "You are using the wrong method"}, status=405)
+
+
+def update_product(request, id):
+    if request.method == "PUT":
+        incoming_data = request.body.decode()
+        to_dict = json.loads(incoming_data)
+        for product in market_product:
+            if id == product["id"]:
+                product["name"] = to_dict["name"]
+                product["category"] = to_dict["category"]
+                product["price"] = to_dict["price"]
+                product["stock"] = to_dict["stock"]
+                product["description"] = to_dict["description"]
+            else:
+                print(market_product)
+                return JsonResponse({"message": "Product update successful"})
+    else:
+        return JsonResponse({"message": "You are using the wrong method"}, status=405)
+
+
+def delete_product(request, id):
+    if request.method == "DELETE":
+        market_product.pop(id - 1)
+        print(market_product)
+
+        return JsonResponse({"message": "Product deleted successful"})
     else:
         return JsonResponse({"message": "You are using the wrong method"}, status=405)
