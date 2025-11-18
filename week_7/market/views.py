@@ -85,3 +85,9 @@ def get_product(request):
             {"message": "You are using the wrong method"},
             status=405
         )
+
+def create_product(request):
+    if request.method == "POST":
+        return JsonResponse({"message":"Product created successful"})
+    else:
+        return JsonResponse({"message": "You are using the wrong method"}, status=405)
