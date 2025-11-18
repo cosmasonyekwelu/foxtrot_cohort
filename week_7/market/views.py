@@ -54,11 +54,34 @@ market_product = [
 ]
 
 
-# ====== VIEW: GET ALL PRODUCTS ====== #
 def get_product(request):
-    return JsonResponse(
-        {
-            "message": "Get Products Successful",
-            "products": market_product
-        },
-    )
+    # print(request.method)
+    if request.method == "GET":
+        category = request.GET.get("category")
+
+        filtered_product = []
+
+        if category != None:
+            for product in market_product:
+                if category == product["category"]:
+                    filtered_product.append(product)
+
+            if len(filtered_product) == 0:
+                return JsonResponse(
+                    {"message": "What you are looking for is not available"},
+                    status=404
+                )
+
+            return JsonResponse(
+                {"message": "Get product Successful", "products": filtered_product}
+            )
+        else:
+            return JsonResponse(
+                {"message": "Get product Successful", "products": market_product}
+            )
+
+    else:
+        return JsonResponse(
+            {"message": "You are using the wrong method"},
+            status=405
+        )
