@@ -5,7 +5,7 @@ import os
 
 
 def say_something(request):
-    return JsonResponse({"message": "Hello from the sever side"})
+    return JsonResponse({"message": "Hello from the sever side tested"})
 
 
 def html_func(request):

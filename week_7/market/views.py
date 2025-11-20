@@ -1,67 +1,15 @@
 from django.http import JsonResponse
+from .models import Market_Product
 import json
-
-
-# ====== SAMPLE PRODUCT DATA (List of Dicts) ====== #
-market_product = [
-    {
-        "id": 1,
-        "name": "Wireless Mouse",
-        "category": "Electronics",
-        "price": 29.99,
-        "stock": 120,
-        "description": "A smooth and responsive wireless mouse."
-    },
-    {
-        "id": 2,
-        "name": "Laptop Backpack",
-        "category": "Accessories",
-        "price": 49.99,
-        "stock": 80,
-        "description": "Water-resistant backpack with padded laptop compartment."
-    },
-    {
-        "id": 3,
-        "name": "Bluetooth Speaker",
-        "category": "Electronics",
-        "price": 59.99,
-        "stock": 40,
-        "description": "Portable speaker with rich bass and long battery life."
-    },
-    {
-        "id": 4,
-        "name": "Running Sneakers",
-        "category": "Fashion",
-        "price": 89.99,
-        "stock": 50,
-        "description": "Lightweight running shoes designed for comfort and speed."
-    },
-    {
-        "id": 5,
-        "name": "Smart Watch",
-        "category": "Electronics",
-        "price": 129.99,
-        "stock": 35,
-        "description": "Touchscreen smartwatch with fitness tracking features."
-    },
-    {
-        "id": 6,
-        "name": "Office Chair",
-        "category": "Furniture",
-        "price": 199.99,
-        "stock": 20,
-        "description": "Ergonomic office chair with lumbar support."
-    },
-]
 
 
 def get_product(request):
     # print(request.method)
     if request.method == "GET":
-       category = request.GET.get("category")
+        category = request.GET.get("category")
 
-       all_products = market_product.object.all().values()
-       return JsonResponse({"message": "Get product Successful", "products": list(all_products)})
+        all_products = Market_Product.objects.all().values()
+        return JsonResponse({"message": "Get product Successful", "products": list(all_products)})
     else:
         return JsonResponse({"message": "You are using the wrong method"}, status=405)
 
@@ -71,7 +19,15 @@ def create_product(request):
         incoming_data = request.body.decode()
         to_dict = json.loads(incoming_data)
 
-        market_product.append({"id": len(market_product) + 1, ** to_dict})
+        Market_Product.objects.create(
+            name=to_dict["name"],
+            category=to_dict["category"],
+            price=to_dict["price"],
+            stock=to_dict["stock"],
+            description=to_dict["description"],
+            is_available=to_dict["is_available"],
+        )
+
         return JsonResponse({"message": "Product created successful"}, status=201)
     else:
         return JsonResponse({"message": "You are using the wrong method"}, status=405)
@@ -79,26 +35,33 @@ def create_product(request):
 
 def update_product(request, id):
     if request.method == "PUT":
+        try:
+            existing_product = Market_Product.objects.get(id=id)
+        except Market_Product.DoesNotExist:
+            return JsonResponse({"message": "What You are looking for does nor exist"}, status=404)
+
         incoming_data = request.body.decode()
         to_dict = json.loads(incoming_data)
-        for product in market_product:
-            if id == product["id"]:
-                product["name"] = to_dict["name"]
-                product["category"] = to_dict["category"]
-                product["price"] = to_dict["price"]
-                product["stock"] = to_dict["stock"]
-                product["description"] = to_dict["description"]
-            else:
-                print(market_product)
-                return JsonResponse({"message": "Product update successful"})
+
+        existing_product.name = to_dict["name"]
+        existing_product.category = to_dict["category"]
+        existing_product.price = to_dict["price"]
+        existing_product.stock = to_dict["stock"]
+        existing_product.description = to_dict["description"]
+
+        return JsonResponse({"message": "Product update successful"})
     else:
         return JsonResponse({"message": "You are using the wrong method"}, status=405)
 
 
 def delete_product(request, id):
     if request.method == "DELETE":
-        market_product.pop(id - 1)
-        # print(market_product)
+        try:
+            existing_product = Market_Product.objects.get(id=id)
+        except Market_Product.DoesNotExist:
+            return JsonResponse({"message": "What You are looking for does nor exist"}, status=404)
+
+        existing_product.delete()
 
         return JsonResponse(data=None, safe=False, status=204)
     else:
