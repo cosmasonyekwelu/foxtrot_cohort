@@ -1,6 +1,9 @@
 from django.db import models
 
 
+# A Django project and app are needed before defining any models.
+# After starting an app, models can be created in the file app_name/models.py.
+
 # Create your models here.
 class Market_Product(models.Model):
     CATEGORY_CHOICES = (

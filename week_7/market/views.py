@@ -58,41 +58,19 @@ market_product = [
 def get_product(request):
     # print(request.method)
     if request.method == "GET":
-        category = request.GET.get("category")
+       category = request.GET.get("category")
 
-        filtered_product = []
-
-        if category != None:
-            for product in market_product:
-                if category == product["category"]:
-                    filtered_product.append(product)
-
-            if len(filtered_product) == 0:
-                return JsonResponse(
-                    {"message": "What you are looking for is not available"},
-                    status=404
-                )
-
-            return JsonResponse(
-                {"message": "Get product Successful", "products": filtered_product}
-            )
-        else:
-            return JsonResponse(
-                {"message": "Get product Successful", "products": market_product}
-            )
-
+       all_products = market_product.object.all().values()
+       return JsonResponse({"message": "Get product Successful", "products": list(all_products)})
     else:
-        return JsonResponse(
-            {"message": "You are using the wrong method"},
-            status=405
-        )
+        return JsonResponse({"message": "You are using the wrong method"}, status=405)
 
 
 def create_product(request):
     if request.method == "POST":
         incoming_data = request.body.decode()
         to_dict = json.loads(incoming_data)
-        print(to_dict)
+
         market_product.append({"id": len(market_product) + 1, ** to_dict})
         return JsonResponse({"message": "Product created successful"}, status=201)
     else:
