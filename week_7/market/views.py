@@ -120,8 +120,8 @@ def update_product(request, id):
 def delete_product(request, id):
     if request.method == "DELETE":
         market_product.pop(id - 1)
-        print(market_product)
+        # print(market_product)
 
-        return JsonResponse({"message": "Product deleted successful"})
+        return JsonResponse(data=None, safe=False, status=204)
     else:
         return JsonResponse({"message": "You are using the wrong method"}, status=405)
