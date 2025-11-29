@@ -5,7 +5,7 @@ This repo contains my daily progress, notes, and practice files from the [Backen
 
 ---
 
-## 📘 Course Goals
+## Course Goals
 
 - Learn **Python fundamentals** and best practices
 - Understand **backend programming** and how servers work
@@ -15,7 +15,7 @@ This repo contains my daily progress, notes, and practice files from the [Backen
 
 ---
 
-## ✅ Progress Tracker
+## Progress Tracker
 
 - **Week 1 completed**
 - **Week 2 completed**
@@ -25,7 +25,8 @@ This repo contains my daily progress, notes, and practice files from the [Backen
 - **Week 6 completed**
 - **Week 7 completed**
 - **Week 8 completed**
-- **Week 9 in progress**
+- **Week 9 completed**
+- **Week 10 in progress**
 
 ---
 
@@ -40,14 +41,14 @@ This repo contains my daily progress, notes, and practice files from the [Backen
 
 ---
 
-## 📌 Notes
+## Notes
 
 This repository is purely educational.  
 It documents my **daily learning journey** as I move from beginner to python backend developer.
 
 ---
 
-## 📫 Connect
+## Connect
 
 - Portfolio: [cosmasonyekwelu.github.io](https://cosmasonyekwelu.github.io)
 - GitHub: [@cosmasonyekwelu](https://github.com/cosmasonyekwelu)
