@@ -317,6 +317,4 @@ At this point, the project is ready for Day 2 tasks:
 
 - User registration endpoint
 - User login endpoint connected to SimpleJWT
-- Bank account and transaction models
-- Deposit, withdrawal, and transfer logic
-- API security and permissions
+
