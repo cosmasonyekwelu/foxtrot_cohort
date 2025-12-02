@@ -1,159 +1,230 @@
-# Week 9: Day 2
-
-## Bank Application API (Django + DRF + JWT)
-
-This session covered how to implement **user registration and login** using **Django REST Framework** along with **JWT authentication** provided by `rest_framework_simplejwt`.
-
-We also created a custom `RegisterSerializer` to handle user creation, password validation, and proper serialization of incoming data.
+Below is a **rewritten, improved, production-friendly, step-by-step documentation** for *Week 9 – Day 2*, **including package installation guides**, explanations of why each package is needed, and a complete walkthrough of how the authentication system works.
 
 ---
 
-## Key Topics Covered
+# Week 9 – Day 2
 
-### 1. Django REST API Views
+## Building a Secure Bank Application API
 
-We created two main API endpoints using the `@api_view` decorator:
+### Using Django, Django REST Framework, and JWT Authentication
 
-#### a. Register Endpoint
+This lesson focused on implementing a **secure authentication system** using:
 
-Allows anyone to create an account.
+* Django
+* Django REST Framework (DRF)
+* SimpleJWT (JSON Web Tokens)
+
+We built **user registration and login APIs**, created a custom serializer, and learned how to validate and serialize incoming data.
+
+---
+
+# 1. Environment Setup & Package Installation
+
+Before writing any authentication code, we installed the core backend packages.
+
+## 1.1 Install Required Packages
+
+Run:
+
+```bash
+pip install Django djangorestframework djangorestframework-simplejwt 
+```
+
+### What each package does:
+
+| Package                           | Purpose                                                                                                                 |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| **Django**                        | The main web framework used to build the API. Handles models, migrations, routing, and admin panel.                     |
+| **djangorestframework (DRF)**     | Adds API-building tools like serializers, viewsets, permissions, parsing, pagination, etc. Required to build REST APIs. |
+| **djangorestframework-simplejwt** | Implements JWT (access & refresh tokens). Used for login and protected routes.                                          |
+
+
+---
+
+# 2. Creating the Authentication Endpoints
+
+We built two API routes using `@api_view`:
+
+* `/register/` — Create a new user
+* `/login/` — Authenticate user and return JWT tokens
+
+These views rely on a **RegisterSerializer** that handles all validation and user creation.
+
+---
+
+# 3. Register API (Signup Endpoint)
+
+## What it does:
+
+* Accepts incoming user data
+* Uses `RegisterSerializer` for validation
+* Creates a new user
+* Returns success or validation errors
+
 Key points:
 
-* Uses `RegisterSerializer`
-* Validates input
-* Saves a new user
-* Returns a success message or validation errors
-
-#### b. Login Endpoint
-
-Authenticates a user by email and password.
-If authentication is successful:
-
-* Generates an `access` token
-* Generates a `refresh` token
-* Returns both tokens in the response
-
-If authentication fails:
-
-* Returns an error message
+* Anyone can access this endpoint (`AllowAny`)
+* Passwords are hashed using `set_password()`
+* Serializer ensures email, BVN, NIN, account type, etc., are validated
 
 ---
 
-## 2. JWT Authentication (SimpleJWT)
+# 4. Login API (JWT Authentication)
 
-We used:
+## What login does:
 
-* `AccessToken.for_user(user)`
-* `RefreshToken.for_user(user)`
+* Validates email + password using Django's `authenticate()`
+* If correct → generates JWT `access` and `refresh` tokens
+* Returns tokens to the frontend
+* If incorrect → returns authentication error
 
-The **access token** is used for short-lived authenticated requests.
-The **refresh token** allows generating a new access token without logging in again.
+### What SimpleJWT provides:
 
----
+* **Access Token** → used for authenticated API calls
+* **Refresh Token** → used to get new access tokens without logging in
 
-## 3. RegisterSerializer
-
-The `RegisterSerializer` handles:
-
-* Validating incoming user data
-* Validating password strength using Django's built-in validators
-* Creating the user object
-* Hashing the password using `set_password`
-
-Fields like `account_number`, `account_type`, `bvn`, and `nin` were set as optional.
+JWT ensures **stateless authentication**, which is required for modern mobile/web apps.
 
 ---
 
-## Code Summary
+# 5. RegisterSerializer (Core of Signup Logic)
 
-### Registration View
+The `RegisterSerializer` performs:
 
-Handles user signup.
+## ✔ Input validation
 
-### Login View
+Ensures fields like:
 
-Authenticates the user and issues JWT tokens.
+* email
+* password
+* nin
+* bvn
+* account_type
 
-### RegisterSerializer
+are correctly formatted.
 
-Ensures data is properly validated and creates a secure user object.
+### ✔ Password validation
+
+Uses Django's built-in password validators.
+
+### ✔ Secure password hashing
+
+Uses:
+
+```python
+user.set_password(password)
+```
+
+Passwords are never stored in plain text.
+
+### ✔ Data serialization
+
+Controls what is returned to Postman / frontend.
 
 ---
 
-# Serialization and Deserialization Explained 
+# 6. Serialization Explained
 
 ## Serialization
 
-Serialization means **converting Python objects into JSON** so they can be sent through the API.
+Convert Python object → JSON response
 
 Example:
-You have a `User` object in the database.
-Serialization converts it to JSON like:
 
-```
-{
-  "first_name": "John",
-  "email": "john@example.com"
-}
+```python
+User → {"email": "john@example.com"}
 ```
 
 ### Deserialization
 
-Deserialization means **converting JSON received from the client into Python objects** so Django can work with them.
+Convert incoming JSON → Python data structure Django can use
 
 Example:
-You send this JSON to the API:
 
-```
+```json
 {
-  "first_name": "John",
   "email": "john@example.com",
   "password": "Pass1234!"
 }
 ```
 
-DRF deserializes it into Python data, validates it, and uses it to create a `User` object.
+DRF deserializes this into Python data and validates it before saving.
 
 In summary:
 
-* Serialization: Python → JSON
-* Deserialization: JSON → Python
+| Direction     | Meaning         |
+| ------------- | --------------- |
+| Python → JSON | Serialization   |
+| JSON → Python | Deserialization |
 
 ---
 
-# Project Structure (Simplified)
+# 7. Project Structure (Simplified)
 
 ```
-views.py
-serializers.py
-models.py
-urls.py
+users/
+    models.py
+    views.py
+    serializers.py
+    urls.py
+project/
+    settings.py
+    urls.py
 ```
 
-* `views.py` contains the register and login logic.
-* `serializers.py` validates user data and creates users.
-* `models.py` stores the custom User model.
-* `urls.py` maps the API routes.
+* `models.py` → User database structure
+* `serializers.py` → Validates inputs, creates users
+* `views.py` → Register/Login logic
+* `urls.py` → Route definitions
 
 ---
 
-# How the API Works
+# 8. Authentication API Flow
 
-## Register
+## A. Register
 
-POST `/register/`
+```
+POST /register/
+```
 
-* Validates data
-* Saves user
-* Returns success message
+Process:
 
-### Login
+1. Validate input
+2. Create user
+3. Hash password
+4. Return success JSON
 
-POST `/login/`
+---
 
-* Verifies email and password
-* Issues access and refresh tokens
-* Returns authentication details
+## B. Login
+
+```
+POST /login/
+```
+
+Process:
+
+1. Validate email + password
+2. Authenticate user
+3. Issue JWT access & refresh tokens
+4. Return tokens to frontend
+
+Tokens are used to call **protected endpoints**.
+
+---
+
+# 9. Summary
+
+By the end of Week 9 Day 2, we learned how to:
+
+* Install and configure Django + DRF
+* Add JWT authentication using SimpleJWT
+* Create custom serializers for secure user creation
+* Build register and login API endpoints
+* Understand serialization & deserialization clearly
+* Handle validation and error reporting correctly
+
+
 
 ---
 
