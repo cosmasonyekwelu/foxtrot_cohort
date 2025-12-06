@@ -28,10 +28,10 @@ project/
 
 ### Core Architectural Principles
 
-- Each app should handle one responsibility.
-- Separate business logic from ORM layers.
-- Optional microservice abstraction possible with DRF boundaries.
-- Stateless architecture — externalize file storage and caches.
+* Each app should handle one responsibility.
+* Separate business logic from ORM layers.
+* Optional microservice abstraction possible with DRF boundaries.
+* Stateless architecture — externalize file storage and caches.
 
 ---
 
@@ -186,11 +186,11 @@ def generate_user_report(user_id):
 
 Common uses:
 
-- Email/SMS dispatch
-- PDF generation
-- Payment retries
-- Data synchronization
-- Analytics processing
+* Email/SMS dispatch
+* PDF generation
+* Payment retries
+* Data synchronization
+* Analytics processing
 
 ---
 
@@ -206,9 +206,9 @@ class ReplicaRouter:
 
 Recommended usage:
 
-- Public pages
-- Search listings
-- Dashboard reports
+* Public pages
+* Search listings
+* Dashboard reports
 
 ### Connection Pooling
 
@@ -231,11 +231,11 @@ timeout = 120
 
 ### Nginx Responsibilities
 
-- SSL termination
-- Compression
-- Static/media routing
-- Rate limiting
-- Caching headers
+* SSL termination
+* Compression
+* Static/media routing
+* Rate limiting
+* Caching headers
 
 ---
 
@@ -243,10 +243,10 @@ timeout = 120
 
 Recommended stack:
 
-- Sentry — exception monitoring
-- Grafana + Prometheus — application metrics
-- ELK Stack — log aggregation
-- Celery Flower — worker monitoring
+* Sentry — exception monitoring
+* Grafana + Prometheus — application metrics
+* ELK Stack — log aggregation
+* Celery Flower — worker monitoring
 
 ---
 
@@ -256,10 +256,10 @@ Use Locust to simulate high RPS.
 
 Goal benchmarks:
 
-- 95% responses under 200ms
-- Cache hit rate above 90%
-- DB queries under 50ms
-- RPS capacity: 1,000–10,000 depending on infra
+* 95% responses under 200ms
+* Cache hit rate above 90%
+* DB queries under 50ms
+* RPS capacity: 1,000–10,000 depending on infra
 
 ---
 
@@ -290,3 +290,5 @@ sentry-sdk
 6. Logging and metrics prevent outages.
 
 ---
+
+
