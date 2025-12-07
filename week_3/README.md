@@ -1,71 +1,68 @@
-# 🐍 Python Control Structures — Class Practice
 
-## 📘 Overview
+# Python Control Structures — Class Practice
 
-This project demonstrates how to use **control structures** in Python — specifically `if`, `elif`, and `else` statements — to make programs behave differently based on user input or specific conditions.
+## Overview
 
-It combines **decision-making**, **user input handling**, and **data structures** to simulate real-world scenarios like course registration and supermarket sales.
+This project demonstrates how to use conditional statements in Python (`if`, `elif`, and `else`) to control how a program responds to user input or specific conditions.
 
-These exercises are part of the Python class practice session designed to strengthen your understanding of how **logic flow** works in programming.
+The exercises combine decision-making, input handling, and basic data structures to simulate real-world examples such as course registration and supermarket transactions.
 
----
-
-## 🎯 Learning Objectives
-
-By the end of this practice, you should be able to:
-
-- Understand and implement **conditional statements** (`if`, `elif`, `else`)
-- Use **logical operators** like `and`, `or`, and `not`
-- Handle **user input** effectively using `input()`
-- Store and manipulate data with **lists** and **dictionaries**
-- Format strings using **f-strings**
-- Combine logic and data handling to build simple interactive programs
+The goal is to help you understand how logic flow works in programming.
 
 ---
 
-## 🧠 Concepts Covered
+## Learning Objectives
+
+By completing this practice, you should be able to:
+
+* Use conditional statements (`if`, `elif`, `else`)
+* Apply logical operators (`and`, `or`, `not`)
+* Collect and process user input using `input()`
+* Store and organize information using lists and dictionaries
+* Format strings using f-strings
+* Combine data input and conditional logic to build interactive programs
+
+---
+
+## Concepts Covered
 
 ### 1. Conditional Logic
 
-Conditional statements allow you to make decisions in your program.
-For example:
+Conditional statements allow a program to behave differently depending on circumstances:
 
 ```python
 if condition:
-    # Runs if condition is True
+    # Code runs when condition is True
 elif another_condition:
-    # Runs if the first condition was False but this is True
+    # Runs if the first condition is False and this one is True
 else:
-    # Runs if all previous conditions were False
+    # Runs when all previous conditions are False
 ```
 
-You can also combine conditions using:
+Logical operators include:
 
-- `and` → both conditions must be true
-- `or` → at least one condition must be true
-- `not` → reverses the logical result
+* `and` — both conditions must be True
+* `or` — at least one condition must be True
+* `not` — reverses a condition’s logical value
 
 ---
 
-### 2. String Formatting with f-Strings
+### 2. String Formatting Using f-Strings
 
-Python’s f-strings (`f"Hello {name}"`) make it easy to include variables in strings.
-
-✅ Example:
+f-Strings allow variables to be easily inserted into strings:
 
 ```python
 name = "Cosmas"
 print(f"Hello {name}, welcome to Python class!")
 ```
 
-⚠️ **Note:**
-When using f-strings, don’t nest braces:
+Avoid placing f-strings inside f-strings:
 
 ```python
-# ❌ Wrong:
+# Incorrect
 print(f"{"==" * 24}")
 
-# ✅ Correct:
+# Correct
 print("=" * 24)
 ```
 
@@ -73,25 +70,22 @@ print("=" * 24)
 
 ### 3. User Input and Data Handling
 
-The `input()` function lets you get user input as a string.
-To use it as a number, convert it with `int()` or `float()` if needed.
-
-Example:
+User input is collected using the `input()` function. Input is always read as a string, so convert it to numbers when needed:
 
 ```python
 age = int(input("Enter your age: "))
 ```
 
-You can then store user input in:
+Data may be stored in:
 
-- **Lists** (`[]`) for groups of items or names
-- **Dictionaries** (`{}`) for structured data like name–item pairs
+* Lists (`[]`) — useful for storing collections of values
+* Dictionaries (`{}`) — ideal for storing structured key–value data
 
 ---
 
-## 💻 Code Implementation
+## Code Implementation
 
-Below is the full corrected version of your class exercise code.
+Below is the complete corrected version of the class exercise:
 
 ```python
 # ======== CONTROL STRUCTURE ========
@@ -117,6 +111,7 @@ else:
 # ==========================================
 # Course Registration Example
 # ==========================================
+
 ui_ux_design = []
 frontend_development = []
 backend_development = []
@@ -149,6 +144,7 @@ print("Backend Development:", backend_development)
 # ==========================================
 # Supermarket Sales Example
 # ==========================================
+
 items = ["Fanta", "Bread", "Milk", "Pillow", "Pan"]
 sales = [
     {"name": "King", "item": "Bread"},
@@ -168,13 +164,13 @@ if user_item in items:
     option = input(f"You selected {user_item}. Do you want to buy it? (Choose Y/N): ").upper()
     if option == "Y":
         sales.append({"name": name, "item": user_item})
-        print("✅ Thank you for your purchase. Have a nice day!")
+        print("Thank you for your purchase. Have a nice day!")
     elif option == "N":
-        print("😐 No worries. Have a nice day!")
+        print("No worries. Have a nice day!")
     else:
-        print("⚠️ Invalid option. Please choose Y or N next time.")
+        print("Invalid option. Please choose Y or N next time.")
 else:
-    print("❌ Sorry, we don't have that item in store.")
+    print("Sorry, we don't have that item in store.")
 
 print("\n=== Updated Sales Record ===")
 print(sales)
@@ -182,50 +178,47 @@ print(sales)
 
 ---
 
-## 🧩 Explanation of Examples
+## Explanation of Examples
 
-### 🛣️ Destination Fee Example
+### Destination Fee Example
 
-Checks if your **transport fee** and **train availability** allow a successful trip:
-
-- If train is available and cost is within budget → success
-- If cost is okay but train unavailable → train not available
-- Otherwise → unsuccessful
+Checks whether the transport cost is within budget and whether the train is available. The result depends on both conditions.
 
 ---
 
-### 🧑‍💻 Course Registration Example
+### Course Registration Example
 
-Simulates a registration system where:
+Simulates a simple registration system:
 
-- Users type their **name** and choose a course
-- The chosen course list (UI/UX, Frontend, Backend) stores their name
+* Collects a name
+* Accepts a course option
+* Stores the name in a corresponding course list
 
-This demonstrates list operations (`append`) and input validation.
-
----
-
-### 🛒 Supermarket Example
-
-Represents a mini-store system:
-
-- Displays available items
-- Records purchases in the sales list
-- Handles invalid or declined purchases gracefully
-
-This example combines conditionals, user input, and data storage using lists of dictionaries.
+Demonstrates list operations and input validation.
 
 ---
 
-## 🏁 Summary — What You Learned
+### Supermarket Example
 
-| Concept                  | Description                                               |
-| ------------------------ | --------------------------------------------------------- |
-| **if / elif / else**     | Controls which block of code executes based on conditions |
-| **Logical operators**    | Combine or modify conditions (`and`, `or`, `not`)         |
-| **f-Strings**            | Format output dynamically using variables                 |
-| **User Input**           | Collect and process user responses                        |
-| **Lists & Dictionaries** | Store and organize data efficiently                       |
-| **Program Flow**         | How logic decisions shape user experience                 |
+Models a small store interaction:
+
+* Displays available items
+* Accepts purchase decisions
+* Stores sales in a list of dictionaries
+
+Demonstrates combining input, conditionals, and data storage.
+
+---
+
+## Summary of What You Learned
+
+| Concept                | Description                                       |
+| ---------------------- | ------------------------------------------------- |
+| Conditional Statements | Code branches based on logical conditions         |
+| Logical Operators      | Combine or modify conditions (`and`, `or`, `not`) |
+| f-Strings              | Format strings using variables                    |
+| User Input             | Read, process, and validate user responses        |
+| Lists & Dictionaries   | Store and organize program data                   |
+| Program Flow           | Decisions change how the program behaves          |
 
 ---
