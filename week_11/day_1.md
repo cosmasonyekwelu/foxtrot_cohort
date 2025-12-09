@@ -353,13 +353,13 @@ Response:
 
 ## 6. Migration and Error Handling Summary
 
-| Issue                                      | Cause                                            | Fix                                     |
-| ------------------------------------------ | ------------------------------------------------ | --------------------------------------- |
-| `no such table: transactions_transactions` | Migrations not applied                           | Ran `makemigrations` + `migrate`        |
-| Wrong lookup on account                    | Used `request.user.id` instead of `request.user` | Corrected                               |
-| Transaction amounts incorrect              | Used total balance instead of incoming amount    | Corrected                               |
-| Data not saved                             | Serializer invalid                               | Added `.is_valid(raise_exception=True)` |
-| Balance not updating properly              | Non-atomic updates                               | Wrapped in `transaction.atomic()`       |
+| Issue                    | Why it happened                                     | Solution                                          |
+| ------------------------ | --------------------------------------------------- | ------------------------------------------------- |
+| "No such table"          | Transaction model created but migration not applied | Ran `makemigrations` and `migrate`                |
+| Foreign key complaints   | Wrong lookup using `user.id`                        | Fixed to `user=request.user`                      |
+| Wrong transaction values | Stored account.amount instead of incoming amount    | Corrected serializer input                        |
+| Balance mismatch         | Transactions not atomic                             | Wrapped balance updates in `transaction.atomic()` |
+
 
 ---
 
