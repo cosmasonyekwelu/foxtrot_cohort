@@ -1,113 +1,158 @@
-# Bank Application API – Comprehensive Documentation for week 11 day One
+# Bank Application API – Comprehensive Documentation (Week 11 – Day 1)
 
-This backend is built with Django REST Framework and JWT authentication. It simulates real-world banking operations such as creating accounts, viewing account details, depositing funds, transferring money, and logging all transactions.
-
----
-
-## 1. Features Implemented
-
-- User registration and authentication (JWT)
-- Account creation linked to users
-- BVN and NIN validation
-- Auto-generated 10-digit account numbers
-- Deposits and transfers between accounts
-- Transaction logging (sender and receiver)
-- Atomic operations preventing partial database changes
-- Self-referential model relationships for transactions
+This backend API simulates real-world banking operations, including user authentication, account creation, secure deposits and transfers, and transaction logging.
+It leverages Django, Django REST Framework, and JWT authentication.
 
 ---
 
-## 2. Core Terminology Explained
+## 1. Apps Included in This Project
+
+### 1.1 Users App
+
+Handles:
+
+- Registration
+- Login (JWT)
+- Profile update
+
+Files created:
+
+- users/models.py
+- users/serializers.py
+- users/views.py
+- users/urls.py
+
+---
+
+### 1.2 Accounts App
+
+Handles:
+
+- Account creation
+- Linking users to accounts (1-to-1)
+- BVN/NIN validation
+- Balance tracking
+
+Files created:
+
+- accounts/models.py
+- accounts/serializers.py
+- accounts/views.py
+- accounts/urls.py
+
+---
+
+### 1.3 Transactions App
+
+Handles:
+
+- Deposits
+- Transfers
+- Transaction recording
+- Sender and receiver referencing same table
+
+Files created:
+
+- transactions/models.py
+- transactions/serializers.py
+- transactions/views.py
+- transactions/urls.py
+
+---
+
+## 2. Concepts Learned and Implemented Properly
 
 ### 2.1 Atomic Transactions
 
-Atomic transactions ensure that multiple related database operations complete entirely or not at all. This prevents situations such as:
+Bank operations must not partially update.
+If two database updates occur, they must both complete successfully or both be rolled back.
 
-- Deducting money from sender but failing to credit receiver
-- Deposit amount updating but no transaction logged
-
-We used:
+Example used:
 
 ```python
 with transaction.atomic():
+    sender.amount -= float(amount)
+    sender.save()
+    receiver.amount += float(amount)
+    receiver.save()
 ```
-
-Example in transfer logic:
-
-```python
-def transfer_money(sender, receiver, amount):
-    with transaction.atomic():
-        sender.amount -= float(amount)
-        sender.save()
-
-        receiver.amount += float(amount)
-        receiver.save()
-```
-
-If anything inside fails, everything inside is rolled back.
 
 ---
 
 ### 2.2 Self-Referential Model Relationships
 
-A self-referential relationship means a model references itself.
-The transaction model holds:
-
-- sender (Account)
-- receiver (Account)
-
-Both point to the same table, Accounts.
-
-Used here:
+The `Transactions` model references `Accounts` twice:
 
 ```python
-class Transactions(models.Model):
-    sender = models.ForeignKey('accounts.Accounts', ...)
-    receiver = models.ForeignKey('accounts.Accounts', ...)
+sender = models.ForeignKey('accounts.Accounts', ...)
+receiver = models.ForeignKey('accounts.Accounts', ...)
 ```
 
-This allowed:
+This allows:
 
-- Deposit logged as sender = receiver
-- Transfers logged between accounts
+- Deposit: sender == receiver
+- Transfers between two accounts
 
 ---
 
 ### 2.3 One-to-One User to Account Relationship
 
-Each user has exactly one account.
+One user can only own one account:
 
 ```python
-user = models.OneToOneField(
-    "users.User",
-    related_name="user_account"
-)
+user = models.OneToOneField("users.User", related_name="user_account")
 ```
 
 ---
 
-## 3. Database Structure Overview
+## 3. Database Models
 
-### Accounts Model
+### 3.1 Users Model
 
-- Linked to user
-- BVN, NIN validation
-- Auto-generated account number
-- Balance tracking
+Users store personal information and password securely.
 
-### Transaction Model
+### 3.2 Accounts Model
 
-- Links sender and receiver
-- Stores description and status
-- Useful for history, disputes, reversals
+Tracks financial information:
+
+```python
+amount = models.FloatField(default=0.0)
+account_number = models.CharField(max_length=10)
+```
+
+### 3.3 Transactions Model
+
+Stores all movements:
+
+- sender account
+- receiver account
+- amount
+- status ("success")
+- description
 
 ---
 
-## 4. API Routes
+## 4. Serializers
+
+### 4.1 User Serializers
+
+Used for registration and updates.
+
+### 4.2 Account Serializers
+
+Includes validation for BVN and NIN.
+
+### 4.3 Transaction Serializers
+
+Stores transaction history.
 
 ---
 
-### 4.1 User Routes
+## 5. Routes Overview
+
+---
+
+### 5.1 User Routes
 
 #### A. Register User
 
@@ -115,7 +160,7 @@ user = models.OneToOneField(
 POST /auth/register/
 ```
 
-##### Sample Request
+Request:
 
 ```json
 {
@@ -127,7 +172,7 @@ POST /auth/register/
 }
 ```
 
-##### Expected Response:
+Response:
 
 ```json
 {
@@ -143,7 +188,7 @@ POST /auth/register/
 POST /auth/login/
 ```
 
-##### Sample Request
+Request:
 
 ```json
 {
@@ -152,7 +197,7 @@ POST /auth/login/
 }
 ```
 
-##### Expected Response:
+Response:
 
 ```json
 {
@@ -164,13 +209,13 @@ POST /auth/login/
 
 ---
 
-#### C. Update User Profile
+#### C. Update User Information
 
 ```
 PATCH /auth/update/
 ```
 
-##### Sample Request
+Request:
 
 ```json
 {
@@ -179,7 +224,7 @@ PATCH /auth/update/
 }
 ```
 
-##### Expected Response
+Response:
 
 ```json
 {
@@ -189,17 +234,15 @@ PATCH /auth/update/
 
 ---
 
-## 4.2 Account Routes
+### 5.2 Account Routes
 
----
-
-### A. Create Account
+#### A. Create Account
 
 ```
 POST /accounts/create/
 ```
 
-#### Sample Request
+Request:
 
 ```json
 {
@@ -209,7 +252,7 @@ POST /accounts/create/
 }
 ```
 
-##### Expected Response
+Response:
 
 ```json
 {
@@ -219,18 +262,17 @@ POST /accounts/create/
 
 ---
 
-### B. View Account Details
+#### B. View Account Details
 
 ```
 GET /accounts/details/
 ```
 
-#### Expected Response
+Response:
 
 ```json
 {
   "user": {
-    "id": 1,
     "first_name": "John",
     "last_name": "Doe",
     "email": "john@example.com",
@@ -244,17 +286,15 @@ GET /accounts/details/
 
 ---
 
-## 4.3 Transaction Routes
+### 5.3 Transaction Routes
 
----
-
-### A. Deposit
+#### A. Deposit
 
 ```
 POST /transactions/deposit/
 ```
 
-#### Sample Request:
+Request:
 
 ```json
 {
@@ -262,12 +302,12 @@ POST /transactions/deposit/
 }
 ```
 
-##### Behavior:
+Operations:
 
-- User balance increases by 3000
-- A transaction is created (sender == receiver)
+- Account balance increases
+- Transaction recorded as self-transfer
 
-##### Expected Response:
+Response:
 
 ```json
 {
@@ -277,13 +317,13 @@ POST /transactions/deposit/
 
 ---
 
-### B. Transfer
+#### B. Transfer
 
 ```
 POST /transactions/transfer/
 ```
 
-#### Sample Request:
+Request:
 
 ```json
 {
@@ -292,13 +332,13 @@ POST /transactions/transfer/
 }
 ```
 
-##### Behavior:
+Operations:
 
-- Sender amount decreases
-- Receiver amount increases
-- Transaction created linking both
+- Sender balance decreases
+- Receiver balance increases
+- Transaction recorded
 
-##### Expected Response:
+Response:
 
 ```json
 {
@@ -311,40 +351,27 @@ POST /transactions/transfer/
 
 ---
 
-## 5. Errors Faced and Solutions
+## 6. Migration and Error Handling Summary
 
-| Issue                          | Cause                                          | Solution                                       |
-| ------------------------------ | ---------------------------------------------- | ---------------------------------------------- |
-| Migration errors               | Model added but no migration executed          | Ran `makemigrations` and `migrate`             |
-| "No such table"                | DB schema outdated                             | Reapplied migrations                           |
-| BVN/NIN invalid                | Wrong length input                             | Added validation in serializer                 |
-| Transaction saved wrong values | Used account.amount instead of incoming amount | Corrected serializer data                      |
-| Account not found              | Wrong lookup                                   | Used `Accounts.objects.get(user=request.user)` |
-
----
-
-## 6. Things Learned
-
-### Validations
-
-You validated BVN and NIN lengths.
-
-### Atomic Database Operations
-
-Used to protect financial consistency.
-
-### Self-Referential Relationships
-
-Allowed sender and receiver to be stored in one model.
-
-### DRF Serialization
-
-You used serializers both for input validation and object creation.
-
-### JWT Authentication
-
-Used to secure all financial routes.
+| Issue                                      | Cause                                            | Fix                                     |
+| ------------------------------------------ | ------------------------------------------------ | --------------------------------------- |
+| `no such table: transactions_transactions` | Migrations not applied                           | Ran `makemigrations` + `migrate`        |
+| Wrong lookup on account                    | Used `request.user.id` instead of `request.user` | Corrected                               |
+| Transaction amounts incorrect              | Used total balance instead of incoming amount    | Corrected                               |
+| Data not saved                             | Serializer invalid                               | Added `.is_valid(raise_exception=True)` |
+| Balance not updating properly              | Non-atomic updates                               | Wrapped in `transaction.atomic()`       |
 
 ---
 
-This README captures all that we tested, debugged, and improved today.
+## 7. What We Achieved Today
+
+- Built banking-grade data models
+- Implemented dynamic validation
+- Corrected migration handling
+- Implemented atomic money movements
+- Implemented self-referential financial transactions
+- Improved serializer usage
+- Built clean, reusable modular code
+- Learned real-world financial backend design concepts
+
+---
